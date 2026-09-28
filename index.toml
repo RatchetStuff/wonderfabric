@@ -4,10 +4,10 @@ hash-format = "sha256"
 file = "LICENSE"
 
 [[files]]
-file = "config/crash_assistant/config.toml"
+file = "config/bcc.json"
 
 [[files]]
-file = "config/modpack_defaults/config/bcc.json"
+file = "config/crash_assistant/config.toml"
 
 [[files]]
 file = "config/modpack_defaults/config/dynamic_fps.json"
