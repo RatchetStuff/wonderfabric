@@ -34,6 +34,10 @@ file = "config/modpack_defaults/config/quick-pack.json"
 file = "config/modpack_defaults/options.txt"
 
 [[files]]
+file = "mods/anti-smooth.pw.toml"
+metafile = true
+
+[[files]]
 file = "mods/async-pack-scan.pw.toml"
 metafile = true
 
@@ -146,6 +150,10 @@ file = "mods/moreculling.pw.toml"
 metafile = true
 
 [[files]]
+file = "mods/nondirectionaldamagetiltfix.pw.toml"
+metafile = true
+
+[[files]]
 file = "mods/obe.pw.toml"
 metafile = true
 
@@ -166,6 +174,10 @@ file = "mods/servercore.pw.toml"
 metafile = true
 
 [[files]]
+file = "mods/simply-no-shading.pw.toml"
+metafile = true
+
+[[files]]
 file = "mods/sodium.pw.toml"
 metafile = true
 
@@ -175,6 +187,10 @@ metafile = true
 
 [[files]]
 file = "mods/structure-layout-optimizer.pw.toml"
+metafile = true
+
+[[files]]
+file = "mods/vertical-bobbing.pw.toml"
 metafile = true
 
 [[files]]

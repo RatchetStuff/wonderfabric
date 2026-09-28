@@ -1,0 +1,13 @@
+name = "Anti-Smooth"
+filename = "antismooth-1.20.1-fabric-2.0.4.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/zlZC5n7T/versions/H1MQOK8m/antismooth-1.20.1-fabric-2.0.4.jar"
+hash-format = "sha512"
+hash = "8013cd572d84551d69d3bcb7fd751dbe429a15664681fde5ab11c6681f55b67bc3e1ca4a94843285693f7efef66f42e5ba32eb9ded7f894a6e96b97030363b93"
+
+[update]
+[update.modrinth]
+mod-id = "zlZC5n7T"
+version = "H1MQOK8m"

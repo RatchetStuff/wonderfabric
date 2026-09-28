@@ -1,0 +1,13 @@
+name = "Nondirectional Damage Tilt Fix"
+filename = "nondirectionaldamagetiltfix-3.0.0+fabric.jar"
+side = "client"
+
+[download]
+url = "https://cdn.modrinth.com/data/v2jWULk9/versions/7MwAfij8/nondirectionaldamagetiltfix-3.0.0%2Bfabric.jar"
+hash-format = "sha512"
+hash = "2f31dc692cc9f1e8fe0d4349780666e4c998e0dff7e87ebed092b64fe1d4245e653160810fe32a3af9bdac63edc84d558cb34137881237f315097eeb189fb2f9"
+
+[update]
+[update.modrinth]
+mod-id = "v2jWULk9"
+version = "7MwAfij8"
