@@ -54,6 +54,10 @@ file = "mods/c2me-fabric.pw.toml"
 metafile = true
 
 [[files]]
+file = "mods/cloth-config.pw.toml"
+metafile = true
+
+[[files]]
 file = "mods/configmanager.pw.toml"
 metafile = true
 
