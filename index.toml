@@ -7,7 +7,7 @@ file = "LICENSE"
 file = "config/crash_assistant/config.toml"
 
 [[files]]
-file = "config/modpack_defaults/config/crash_assistant/config.toml"
+file = "config/modpack_defaults/config/bcc.json"
 
 [[files]]
 file = "config/modpack_defaults/config/dynamic_fps.json"
@@ -51,6 +51,10 @@ metafile = true
 
 [[files]]
 file = "mods/badoptimizations.pw.toml"
+metafile = true
+
+[[files]]
+file = "mods/better-compatibility-checker.pw.toml"
 metafile = true
 
 [[files]]
