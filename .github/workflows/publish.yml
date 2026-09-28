@@ -1,0 +1,78 @@
+name: Publish
+
+permissions:
+  contents: write
+
+on:
+  workflow_dispatch:
+    inputs:
+        version:
+          description: Release version (adheres to Semantic Versioning)
+          required: true
+          type: string
+
+concurrency:
+  group: packwiz-${{ github.ref }}
+  cancel-in-progress: false
+  queue: max
+
+jobs:
+  publish:
+    runs-on: ubuntu-26.04
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Setup Go
+        uses: actions/setup-go@v7
+        with:
+          cache: false
+      
+      - name: Setup packwiz
+        run: go install github.com/packwiz/packwiz@latest
+
+      - name: Find previous tag
+        id: previous_tag
+        shell: bash
+        run: |
+          previous_tag=$(git tag --sort=-version:refname | head -n 1)
+          if [[ -z "$previous_tag" ]]; then
+            echo "No previous tag found"
+            exit 1
+          fi
+          echo "tag=$previous_tag" >> "$GITHUB_OUTPUT"
+      
+      - name: Bump pack.toml version
+        env:
+          pack_version: ${{ inputs.version }}
+          previous_tag: ${{ steps.previous_tag.outputs.tag }}
+        shell: bash
+        run: |
+          if [[ -n "$previous_tag" ]] && git diff --quiet "$previous_tag" HEAD -- "./"; then
+            continue
+          fi
+
+          full_version="${pack_version}+mc1.20.1.fabric"
+          sed -i -E "s/^version = .*/version = \"${full_version}\"/" "$filepath"
+
+      - name: Commit release
+        if: github.ref == 'refs/heads/main'
+        uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          commit_message: "chore: release ${{ inputs.version }}"
+          tag_name: ${{ inputs.version }}
+      
+      - name: Export modpack
+        run: packwiz mr export
+      
+      - name: Release modpack
+        if: github.ref == 'refs/heads/main'
+        uses: Kira-NT/mc-publish@v3
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+          files: *.mrpack
+          version: ${{ inputs.version }}

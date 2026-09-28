@@ -1,0 +1,44 @@
+name: Prepare
+
+permissions:
+  contents: write
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: packwiz-${{ github.ref }}
+  cancel-in-progress: false
+  queue: max
+
+jobs:
+  prepare:
+    runs-on: ubuntu-26.04
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      
+      - name: Setup Go
+        uses: actions/setup-go@v7
+        with:
+          cache: false
+      
+      - name: Setup packwiz
+        run: go install github.com/packwiz/packwiz@latest
+      
+      - name: Update mods
+        shell: bash
+        run: packwiz update -ay
+      
+      - name: Migrate loaders
+        shell: bash
+        run: packwiz migrate loader latest
+
+      - name: Commit snapshot
+        if: github.ref == 'refs/heads/main'
+        uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          commit_message: "chore: update snapshot"
