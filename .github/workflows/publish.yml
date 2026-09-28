@@ -51,12 +51,12 @@ jobs:
           previous_tag: ${{ steps.previous_tag.outputs.tag }}
         shell: bash
         run: |
-          if [[ -n "$previous_tag" ]] && git diff --quiet "$previous_tag" HEAD -- "./"; then
-            continue
+          if [[ -n "$previous_tag" ]] && git diff --quiet "$previous_tag" HEAD -- './'; then
+            exit 0
           fi
 
           full_version="${pack_version}+mc1.20.1.fabric"
-          sed -i -E "s/^version = .*/version = \"${full_version}\"/" "$filepath"
+          sed -i -E "s/^version = .*/version = \"${full_version}\"/" 'pack.toml'
 
       - name: Commit release
         if: github.ref == 'refs/heads/main'
@@ -74,5 +74,5 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
-          files: *.mrpack
+          files: '*.mrpack'
           version: ${{ inputs.version }}
