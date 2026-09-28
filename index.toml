@@ -3,3 +3,28 @@ hash-format = "sha256"
 [[files]]
 file = "LICENSE"
 hash = "0eeb02ecee9821d4b7be872eb9c4675b55ffd4eb7407275d923e928ff253893a"
+
+[[files]]
+file = "mods/fabric-api.pw.toml"
+hash = "f42dcc815231697e3d5038e7e34e2ef6637a7bf3e2fe077e4eafb0488f871b9a"
+metafile = true
+
+[[files]]
+file = "mods/fabric-language-kotlin.pw.toml"
+hash = "7a7f5673b6e33eebaed00c0c453fc41d11c7474eb320c3ce8736d415fcfe2682"
+metafile = true
+
+[[files]]
+file = "mods/geckolib.pw.toml"
+hash = "930bb7150387995f4764a33a41bc1dde3f0e977c0432010e96ea2076fcf6d85d"
+metafile = true
+
+[[files]]
+file = "mods/kilt.pw.toml"
+hash = "ad1e1ab862ba447664fb87bdfaed1de091ab95f1941fb41d90eed423347058ce"
+metafile = true
+
+[[files]]
+file = "mods/wonderland-jar.pw.toml"
+hash = "47dc91fa441e5960aedfbedfab5c7c74ce845eb52b8d1310937f8f2d939c1fa7"
+metafile = true
