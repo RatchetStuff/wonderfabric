@@ -62,7 +62,7 @@ jobs:
 
           files: '*.mrpack'
           
-          name: Wonderfabrica ${{ inputs.version }}
+          name: Wonderfabric ${{ inputs.version }}
           version: ${{ inputs.version }}
 
           loaders: fabric
