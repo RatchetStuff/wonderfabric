@@ -34,27 +34,10 @@ jobs:
       - name: Setup packwiz
         run: go install github.com/packwiz/packwiz@latest
 
-      - name: Find previous tag
-        id: previous_tag
-        shell: bash
-        run: |
-          previous_tag=$(git tag --sort=-version:refname | head -n 1)
-          if [[ -z "$previous_tag" ]]; then
-            echo "No previous tag found"
-            exit 1
-          fi
-          echo "tag=$previous_tag" >> "$GITHUB_OUTPUT"
-      
       - name: Bump pack.toml version
         env:
           pack_version: ${{ inputs.version }}
-          previous_tag: ${{ steps.previous_tag.outputs.tag }}
-        shell: bash
         run: |
-          if [[ -n "$previous_tag" ]] && git diff --quiet "$previous_tag" HEAD -- './'; then
-            exit 0
-          fi
-
           full_version="${pack_version}+mc1.20.1.fabric"
           sed -i -E "s/^version = .*/version = \"${full_version}\"/" 'pack.toml'
 
