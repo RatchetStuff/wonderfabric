@@ -44,7 +44,7 @@ jobs:
           # bcc.json
           jq --arg version "$pack_version" \
             ".modpackVersion = $version" \
-            bcc.json > bcc.json.tmp && mv bcc.json.tmp bcc.json
+            config/bcc.json > config/bcc.json.tmp && mv config/bcc.json.tmp config/bcc.json
 
       - name: Commit release
         if: github.ref == 'refs/heads/main'
