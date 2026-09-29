@@ -31,6 +31,12 @@ file = "config/modpack_defaults/config/moreculling.toml"
 file = "config/modpack_defaults/config/quick-pack.json"
 
 [[files]]
+file = "config/modpack_defaults/config/servercore/optimizations.yml"
+
+[[files]]
+file = "config/modpack_defaults/config/structure_layout_optimizer.jsonc"
+
+[[files]]
 file = "config/modpack_defaults/options.txt"
 
 [[files]]
@@ -207,6 +213,10 @@ metafile = true
 
 [[files]]
 file = "mods/structure-layout-optimizer.pw.toml"
+metafile = true
+
+[[files]]
+file = "mods/substrate.pw.toml"
 metafile = true
 
 [[files]]

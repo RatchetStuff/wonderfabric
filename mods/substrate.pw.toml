@@ -1,0 +1,13 @@
+name = "Substrate"
+filename = "substrate-4.0-hf.jar"
+side = "client"
+
+[download]
+url = "https://cdn.modrinth.com/data/zNuzb72d/versions/VXMsR7Xy/substrate-4.0-hf.jar"
+hash-format = "sha512"
+hash = "de8c273cea0c43b8466a4d95c3ecde335fef8d96bb7f5a8e3dbc177796156d7f3079b96039f02d019c56b5eb0ece45cbb34bf3c5c77f8ff4d133e8741cf86151"
+
+[update]
+[update.modrinth]
+mod-id = "zNuzb72d"
+version = "VXMsR7Xy"
