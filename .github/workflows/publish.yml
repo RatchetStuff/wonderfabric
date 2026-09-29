@@ -38,8 +38,13 @@ jobs:
         env:
           pack_version: ${{ inputs.version }}
         run: |
-          full_version="${pack_version}+mc1.20.1.fabric"
-          sed -i -E "s/^version = .*/version = \"${full_version}\"/" 'pack.toml'
+          # pack.toml
+          sed -i -E "s/^version = .*/version = \"${pack_version}\"/" 'pack.toml'
+
+          # bcc.json
+          jq --arg version "$pack_version" \
+            ".modpackVersion = $version" \
+            bcc.json > bcc.json.tmp && mv bcc.json.tmp bcc.json
 
       - name: Commit release
         if: github.ref == 'refs/heads/main'
