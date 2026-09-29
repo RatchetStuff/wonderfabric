@@ -43,7 +43,7 @@ jobs:
 
           # bcc.json
           jq --arg version "$pack_version" \
-            ".modpackVersion = $version" \
+            '.modpackVersion = $version' \
             config/bcc.json > config/bcc.json.tmp && mv config/bcc.json.tmp config/bcc.json
 
       - name: Commit release
